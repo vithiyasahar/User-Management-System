@@ -1,0 +1,66 @@
+  
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">EDIT USER</li>
+  </ol>
+</nav>
+
+
+ {{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+{{#each rows}}
+
+<form class="row g-3 needs-valitation" method="post" action="/edituser/{{this.id}}" novalidate>
+
+<div class="col-6">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="First Name" value="{{this.first_name}}" name ="first_name">
+  <label for="floatingInput">First Name</label>
+</div>
+</div>
+<div class="col-6">
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Last Name"  value="{{this.last_name}}"name ="last_name">
+  <label for="floatingInput">Last Name</label>
+  </div>
+</div>
+<div class="col-6">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Email" value="{{this.email}}" name ="email">
+  <label for="floatingInput">Email</label>
+</div>
+</div>
+<div class="col-6">
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Phone" name ="phone" value="{{this.phone}}" >
+  <label for="floatingInput">Phone</label>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="form-floating mb-3">
+  <textarea class="form-control" id="comments" placeholder="Leave  a comment here" name ="comments" style="height:200px">
+    {{this.comments}}</textarea>
+  <label for="floatingInput">Comments</label>
+  </div>
+</div>
+
+<div class="col-24 g-grid">
+    <button class="btn btn-primary" type="submit" >Submit</button>
+</div>
+
+
+
+
+
+</form>
+
+{{/each}}
